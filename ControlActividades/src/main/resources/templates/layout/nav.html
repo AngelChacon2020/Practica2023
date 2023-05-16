@@ -1,0 +1,121 @@
+<nav class="navbar is-info is-fixed-top" role="navigation" aria-label="main navigation"
+     xmlns:th="http://www.thymeleaf.org" th:fragment="nav" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+        <div class="navbar-brand">
+
+            <a class="navbar-item" th:href="@{/}">
+                <img th:src="${'/img/icons8-test-100.png'}">
+            </a>
+
+            <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+               data-target="navbarBasicExample">
+                <span aria-hidden="true" class="has-text-white"></span>
+                <span aria-hidden="true" class="has-text-white"></span>
+                <span aria-hidden="true" class="has-text-white"></span>
+            </a>
+        </div>
+
+    <div id="navbarBasicExample" class="navbar-menu">
+        <div class="navbar-start">
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    <i class="fas fa-graduation-cap mr-1"></i>
+                    Alumnos
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" th:href="@{/alumno/Consultar}">
+                        Consultar alumnos
+                    </a>
+                    <a class="navbar-item" th:href="@{/alumno/nuevo}">
+                        Registrar alumno
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link ">
+                    <i class="fas fa-tasks mr-1"></i>
+                    Actividades
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" th:href="@{/plan-trabajo/nuevo}">
+                        Nuevo plan de trabajo
+                    </a>
+                    <a class="navbar-item" th:href="@{/plan-trabajo/consultar}">
+                        Consultar plan de trabajo
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link ">
+                    <i class="fas fa-file-invoice mr-1"></i>
+                    Reportes
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" th:href="@{/reportes/alumnos?init=true}">
+                        Reporte de alumnos
+                    </a>
+                    <a class="navbar-item"  th:href="@{/reportes/notas-bimestre?init=true}">
+                        Reporte notas por bimestre
+                    </a>
+                    <a class="navbar-item" th:href="@{/reportes/notas-finales}">
+                        Reporte notas finales
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link ">
+                    <i class="fas fa-cog mr-1"></i>
+                    Configuración
+                </a>
+
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" th:href="@{/usuarios/nuevo}">
+                        Gestionar usuarios
+                    </a>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="navbar-end">
+
+            <div class="navbar-item is-right dropdown is-hoverable">
+
+                <div class="dropdown-trigger">
+
+                    <button class="button " aria-haspopup="true" aria-controls="dropdown-menu3">
+                            <span class="icon is-small">
+                                <i class="fas fa-user"></i>
+                            </span>
+                        <span sec:authentication="principal.nombreCompleto">Nombre del usuario</span>
+                    </button>
+                </div>
+                <div class="dropdown-menu" id="dropdown-menu3" role="menu">
+                    <div class="dropdown-content">
+                        <div class="dropdown-item">
+                            <p sec:authentication="principal.nombreCompleto"></p>
+                            <p><strong sec:authentication="principal.authorities"></strong></p>
+                        </div>
+                        <hr class="dropdown-divider">
+                        <form th:action="@{/logout}" method="post">
+                            <a class="dropdown-item" onclick="this.parentNode.submit();">
+                                <i class="fas fa-sign-out-alt"></i>
+                                Cerrar sesión
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>

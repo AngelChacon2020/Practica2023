@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" class="has-background-light has-navbar-fixed-top">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+
+<!-- aqui va el head -->
+
+
+<body>
+<main>
+<div th:replace="layout/head"></div>
+
+
+    <!-- aqui va el nav -->
+    <div th:replace="layout/nav"></div>
+
+
+    <section class="section">
+        <div class="container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+
+                        <p class="title has-text-centered">Bienvenido <span></span></p>
+                        <p class="subtitle has-text-centered">Sistema Control Actividades</p>
+                        <hr class="dropdown-divider">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- aqui va el footer-->
+    <div th:replace="layout/footer"></div>
+
+
+</main>
+
+
+<!-- aqui va el script de jquery-->
+<script th:replace="layout/scripts :: script"></script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" class="has-background-light has-navbar-fixed-top">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+
+<!-- aqui va el head -->
+<head th:replace="layout/head :: head"></head>
+
+
+<body>
+<main>
+
+
+    <!-- aqui va el nav -->
+    <nav th:replace="layout/nav :: nav"></nav>
+
+    <section class="section">
+        <div class="container">
+            <div class="card">
+                <div class="card-content">
+                    <div class="content">
+
+                        <form id="form-nuevo-alumno">
+
+                            <h4 class="title has-text-centered is-4">REGISTRAR ALUMNOS</h4>
+                            <hr class="dropdown-divider">
+                            <!-- AQUI VA EL CONTENIDO DE CAMBIA -->
+                            <p class="subtitle is-5 has-text-danger">* indica un campo obligatorio</p>
+                            <h5 class="title is-5 my-6">Datos del alumno</h5>
+                            <div class="columns">
+                                <div class="column is-5 center">
+                                    <label> *Código</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Código" id="codigo" required
+                                               name="codigo">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="columns">
+                                <div class="column is-5">
+                                    <label> *Nombre</label>
+                                    <div class="control">
+                                        <input class="input " type="text" placeholder="Nombre" id="nombre" required
+                                               name="nombre">
+                                    </div>
+                                </div>
+                                <div class="column is-5">
+                                    <label> *Apellido</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Apellido" id="apellido" required
+                                               name="apellido">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-10 center">
+                                    <label>Dirección</label>
+                                    <div class="control">
+                                        <input class="input" type="text" placeholder="Dirección" id="direccion"
+                                               name="direccion">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="columns">
+                                <div class="column is-5 ">
+                                    <label> *Fecha Nacimiento</label>
+                                    <div class="control has-text-info">
+                                        <input class="input" type="date" placeholder="Fecha nacimieto" id="fechanac"
+                                               required name="nacimiento">
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="columns">
+                                <div class="column is-3 is-offset-3 ">
+                                    <button class="button  is-success is-large is-fullwidth" type="submit"
+                                            id="btn-submit">
+                                        <i class="far fa-save mr-1"></i> Registrar
+                                    </button>
+                                </div>
+                                <div class="column is-3 ">
+                                    <a class="button  is-light is-large is-fullwidth" th:href="@{/alumno/Consultar}">
+                                        <i class="fas fa-database mr-1"></i>Consultar
+                                    </a>
+                                </div>
+                            </div>
+
+
+                        </form>
+
+                        <!-- AQUI VA EL CONTENIDO DE CAMBIA -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- aqui va el footer-->
+    <footer th:replace="layout/footer :: footer"></footer>
+</main>
+
+
+
+</body>
+</html>
