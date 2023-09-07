@@ -13,9 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
             return "index";
         }
 
-        @GetMapping(value = "/index")
+        @GetMapping(value = "/login")
         public String Login() {
-            return "index";
+            return "login";
         }
     }
 

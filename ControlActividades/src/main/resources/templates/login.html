@@ -1,10 +1,74 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Hola</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+<html lang="es" xmlns:th="http://www.thymeleaf.org" class="has-background-light has-navbar-fixed-top">
+
+
+
+<!-- aqui va el head -->
+<head th:replace="layout/head :: head"></head>
+
 </head>
+
 <body>
-<h1>Buenas noches supongo</h1>
+
+<main>
+
+    <div class="columns is-centered">
+
+        <div class="colum is-6">
+
+
+
+                <h4 class="title has-text-centered is-3">Login</h4>
+                <figure class="image mt-4" style="margin: auto; width: 70%">
+
+                </figure>
+            <!--
+                <article class="message is-danger" >
+                    <div class="message-body">
+                        Usuario o contraseña inválido.
+                    </div>
+                </article>-->
+
+
+
+                <div class="field">
+                    <label class="label">
+                        Usuario
+                    </label>
+                    <div class="control has-icons-left">
+                        <input type="text" class="input" placeholder="usuario" name="username">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-user"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label">
+                        Contraseña
+                    </label>
+                    <div class="control has-icons-left">
+                        <input type="password" class="input" placeholder="contraseña" name="password">
+                        <span class="icon is-small is-left">
+                            <i class="fa fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column is-12 ">
+                        <a class="button " th:href="@{/index}">
+                        <p class="help has-text-centered">Software Control Notas v.1</p>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+
+</main>
+
+<!-- aqui va el script de jquery-->
+<script th:replace="layout/scripts :: script"></script>
+
 </body>
 </html>

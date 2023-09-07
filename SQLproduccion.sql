@@ -186,13 +186,8 @@ CREATE TABLE IF NOT EXISTS `control_actividad`.`bimestre` (
   `id_ciclo_escolar` BIGINT NOT NULL,
   `id_usuario` BIGINT NOT NULL,
   PRIMARY KEY (`id_bimestre`),
-  INDEX `fk_bimestre_ciclo_escolar1_idx` (`id_ciclo_escolar` ASC) ,
+  
   INDEX `fk_bimestre_usuario1_idx` (`id_usuario` ASC) ,
-  CONSTRAINT `fk_bimestre_ciclo_escolar1`
-    FOREIGN KEY (`id_ciclo_escolar`)
-    REFERENCES `control_actividad`.`ciclo_escolar` (`id_ciclo_escolar`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_bimestre_usuario1`
     FOREIGN KEY (`id_usuario`)
     REFERENCES `control_actividad`.`usuario` (`id_usuario`)
@@ -294,11 +289,6 @@ CREATE TABLE IF NOT EXISTS `control_actividad`.`detalle_calificacion` (
     REFERENCES `control_actividad`.`alumno` (`id_alumno`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
-  CONSTRAINT `fk_detalle_calificacion_evaluacion1`
-    FOREIGN KEY (`id_evaluacion`)
-    REFERENCES `control_actividad`.`evaluacion` (`id_evaluacion`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_detalle_calificacion_usuario1`
     FOREIGN KEY (`id_usuario`)
     REFERENCES `control_actividad`.`usuario` (`id_usuario`)
@@ -396,12 +386,8 @@ CREATE TABLE IF NOT EXISTS `control_actividad`.`nota` (
     FOREIGN KEY (`id_usuario`)
     REFERENCES `control_actividad`.`usuario` (`id_usuario`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_nota_ciclo_escolar1`
-    FOREIGN KEY (`id_ciclo_escolar`)
-    REFERENCES `control_actividad`.`ciclo_escolar` (`id_ciclo_escolar`)
-    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
+
 ENGINE = InnoDB;
 
 
